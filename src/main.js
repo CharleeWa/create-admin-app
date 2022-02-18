@@ -1,0 +1,26 @@
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import { VueAxios } from './utils/request'
+import ProLayout, { PageHeaderWrapper } from '@ant-design-vue/pro-layout'
+
+import './mock'
+import './core/lazy_use'
+import './permission'
+import './utils/filter'
+import './global.less'
+
+Vue.config.productionTip = false
+Vue.use(VueAxios)
+
+// use pro-layout components
+Vue.component('pro-layout', ProLayout)
+Vue.component('page-container', PageHeaderWrapper)
+Vue.component('page-header-wrapper', PageHeaderWrapper)
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')
